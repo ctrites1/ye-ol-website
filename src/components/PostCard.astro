@@ -1,12 +1,27 @@
 ---
+import { render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
 const { post } = Astro.props;
+interface Props {
+  post: CollectionEntry<"posts">;
+}
+const { Content } = await render(post);
+
+const formattedDate = new Date(post.data.date).toLocaleDateString("en-CA", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 ---
 
 <article class="blog-post card">
   <div class="blog-header">
-    <h2>{post.title}</h2>
-    <p>{post.date}</p>
+    <h2>{post.data.title}</h2>
+    <p>{formattedDate}</p>
   </div>
   <div class="divider-horizontal"></div>
-  {post.content.map((part) => <p>{part}</p>)}
+  <p>
+    <Content />
+  </p>
 </article>

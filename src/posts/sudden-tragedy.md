@@ -1,6 +1,6 @@
 ---
 title: "Sudden Tragedy"
-date: "2026/05/29"
+date: 2026/05/29
 page: "Trio"
 ---
 

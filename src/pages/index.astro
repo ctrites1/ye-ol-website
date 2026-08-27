@@ -1,7 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import posts from "../data/posts.json";
 import PostCard from "../components/PostCard.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const posts: CollectionEntry<"posts">[] = (await getCollection("posts")).sort(
+  (a: CollectionEntry<"posts">, b: CollectionEntry<"posts">) =>
+    b.data.date.valueOf() - a.data.date.valueOf(),
+);
 ---
 
 <Layout>
@@ -21,6 +26,6 @@ import PostCard from "../components/PostCard.astro";
   <div class="content rainbow-border" id="main-posts">
     <h2>Posts</h2>
     {posts.length === 0 && <p>No Posts Yet!</p>}
-    {posts.toReversed().map((post) => <PostCard post={post} />)}
+    {posts.map((post) => <PostCard post={post} />)}
   </div>
 </Layout>

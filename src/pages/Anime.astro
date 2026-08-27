@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AnimePost from "../components/AnimePost.astro";
+
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const anime: CollectionEntry<"anime">[] = (await getCollection("anime")).sort(
+  (a: CollectionEntry<"anime">, b: CollectionEntry<"anime">) =>
+    b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<Layout>
+  <div class="content rainbow-border">
+    {anime.map((post) => <AnimePost animePost={post} />)}
+  </div>
+</Layout>

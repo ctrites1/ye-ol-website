@@ -1,0 +1,17 @@
+---
+import { render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  animePost: CollectionEntry<"anime">;
+}
+const { animePost } = Astro.props;
+const { Content } = await render(animePost);
+---
+
+<article class="anime-post card">
+  <div class="anime-header">
+    <h2>{animePost.data.title}</h2>
+  </div>
+  <Content />
+</article>

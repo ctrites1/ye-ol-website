@@ -1,9 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PostCard from "../components/PostCard.astro";
-import posts from "../data/posts.json";
+import { getCollection, type CollectionEntry } from "astro:content";
 
-const devlogs = posts.filter((p) => p.page === "Devlogs");
+const posts: CollectionEntry<"posts">[] = (await getCollection("posts")).sort(
+  (a: CollectionEntry<"posts">, b: CollectionEntry<"posts">) =>
+    b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const devlogs = posts.filter((p) => p.data.page === "Devlogs");
 ---
 
 <Layout>
