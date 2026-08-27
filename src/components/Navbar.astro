@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import nomnomnami from "../assets/images/nomnomnami_badge.gif";
+import blamensir from "../assets/images/blamensir-badge.png";
+import reigenmoe from "../assets/images/reigenmoe-badge.gif";
+---
+
+<nav class="navigation rainbow-border">
+  <div class="card" id="nav-header">
+    <h1>~ NAVIGATE ~</h1>
+    <input
+      type="checkbox"
+      id="hamburger-toggle"
+      aria-label="hamburger"
+      aria-controls="menu"
+      aria-expanded="false"
+    />
+    <label for="hamburger-toggle" id="hamburger" aria-hidden="true">
+      <span class="slice"></span>
+      <span class="slice"></span>
+      <span class="slice"></span>
+    </label>
+  </div>
+  <div id="menu">
+    <ul class="nav-items-container card">
+      <li class="nav-item"><a href="/TheTrio">The Trio</a></li>
+      <!-- <li class="nav-item"><a href="/DevLogs">Dev Logs</a></li> -->
+      <li class="nav-item"><a href="/Ballroom">Ballroom Dance</a></li>
+      <li class="nav-item"><a href="/Anime">Anime</a></li>
+    </ul>
+    <div class="inspo-container card">
+      <h2>~ Site Inspo ~</h2>
+      <div>
+        <a class="site-badge" href="https://nomnomnami.com/">
+          <Image src={nomnomnami} alt="nomnomnami badge" />
+        </a>
+        <a class="site-badge" href="https://reigen.moe/home">
+          <Image src={reigenmoe} alt="reigenmoe badge" />
+        </a>
+        <a class="site-badge" href="https://blamensir.neocities.org/">
+          <Image src={blamensir} alt="blamensir badge" />
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

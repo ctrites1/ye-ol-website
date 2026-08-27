@@ -7,7 +7,6 @@
   --accent-turquoise: #96f2ef;
   --star-default-color: #96f2ef;
   --hamburger-size: clamp(16px, 10vmin, 32px);
-  --hamburger-size: 200px;
 
   /* Other */
   --rounded: 12px;
@@ -128,41 +127,86 @@ h1 {
 }
 
 .navigation {
-  /* visibility: hidden; */
-  /* grid-column: 1 / span 16; */
-  grid-column: 2 / span 3;
-  background: var(--bg-blue);
+  grid-column: 1 / span 16;
+  /* grid-column: 2 / span 3; */
+  background: var(--bg-dark);
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: sticky;
+  position: relative;
   gap: 0.5rem;
   padding: 0.5rem;
   min-width: min-content;
-
-  /* #hamburger-toggle { */
-  /*   opacity: 0; */
-  /*   cursor: pointer; */
-  /*   position: absolute; */
-  /* } */
-  /**/
-  /* #hamburger { */
-  /*   display: block; */
-  /*   padding: 0.5rem; */
-  /*   cursor: pointer; */
-  /*   width: clamp(16px, 10vmin, 32px); */
-  /* } */
 
   > * {
     width: 100%;
     box-sizing: border-box;
   }
 
+  #nav-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
   h1 {
-    border: solid 2px var(--bg-purple);
     text-align: center;
     margin: 0.25rem 0 0;
     font-weight: 300;
+    padding-left: 1rem;
+  }
+
+  #menu {
+    visibility: hidden;
+    position: relative;
+  }
+  #hamburger-toggle {
+    opacity: 0;
+    cursor:
+      url("/cursors/Link_pointer_Brushbuddy.png") 10 3,
+      pointer;
+    position: absolute;
+  }
+  #hamburger {
+    display: block;
+    padding: 0.5rem;
+    cursor:
+      url("/cursors/Link_pointer_Brushbuddy.png") 10 3,
+      pointer;
+    width: var(--hamburger-size);
+    height: var(--hamburger-size);
+    box-sizing: content-box;
+    transition: transform 0.2s ease;
+  }
+  #hamburger .slice {
+    --slice-height: 2px;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: var(--slice-height, 2px);
+    border-radius: var(--slice-height);
+    transition: all 0.2s ease;
+    background-color: var(--accent-turquoise);
+    opacity: 90%;
+  }
+  #hamburger .slice {
+    margin-top: 22%; /* Fallback to produce something hamburger-ish if calc is not available */
+    margin-top: calc(33% - var(--slice-height));
+    top: calc((33% - var(--slice-height)) / -2);
+  }
+  #hamburger-toggle:checked ~ #hamburger .slice:nth-child(1) {
+    top: calc(50% - 33% + var(--slice-height) / 2);
+    transform: rotate(45deg);
+  }
+  #hamburger-toggle:checked ~ #hamburger .slice:nth-child(2) {
+    opacity: 0;
+  }
+  #hamburger-toggle:checked ~ #hamburger .slice:nth-child(3) {
+    top: calc(-50% + var(--slice-height) / 2);
+    transform: rotate(-45deg);
   }
 
   .nav-items-container {

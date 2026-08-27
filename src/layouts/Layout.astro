@@ -4,6 +4,7 @@ import { Font, Image } from "astro:assets";
 import nomnomnami from "../assets/images/nomnomnami_badge.gif";
 import blamensir from "../assets/images/blamensir-badge.png";
 import reigenmoe from "../assets/images/reigenmoe-badge.gif";
+import Navbar from "../components/Navbar.astro";
 ---
 
 <html lang="en">
@@ -21,47 +22,16 @@ import reigenmoe from "../assets/images/reigenmoe-badge.gif";
     <script>
       import "../scripts/sparkles.js";
     </script>
+    <script>
+      import "../scripts/navbar.js";
+    </script>
   </head>
   <body>
     <header class="rainbow-border">
       <h1 class="sparkles-wrapper"><a href="/">Potat's Place</a></h1>
     </header>
     <div class="wrapper">
-      <nav class="navigation rainbow-border">
-        <input
-          type="checkbox"
-          id="hamburger-toggle"
-          aria-label="hamburger"
-          aria-controls="menu"
-          aria-expanded="false"
-        />
-        <label for="hamburger-toggle" id="hamburger" aria-hidden="true">
-          <span class="slice"></span>
-          <span class="slice"></span>
-          <span class="slice"></span>
-        </label>
-        <h1 class="card">~ NAVIGATE ~</h1>
-        <ul class="nav-items-container card">
-          <li class="nav-item"><a href="/TheTrio">The Trio</a></li>
-          <!-- <li class="nav-item"><a href="/DevLogs">Dev Logs</a></li> -->
-          <li class="nav-item"><a href="/Ballroom">Ballroom Dance</a></li>
-          <li class="nav-item"><a href="/Anime">Anime</a></li>
-        </ul>
-        <div class="inspo-container card">
-          <h2>~ Site Inspo ~</h2>
-          <div>
-            <a class="site-badge" href="https://nomnomnami.com/">
-              <Image src={nomnomnami} alt="nomnomnami badge" />
-            </a>
-            <a class="site-badge" href="https://reigen.moe/home">
-              <Image src={reigenmoe} alt="reigenmoe badge" />
-            </a>
-            <a class="site-badge" href="https://blamensir.neocities.org/">
-              <Image src={blamensir} alt="blamensir badge" />
-            </a>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
       <slot />
     </div>
   </body>
