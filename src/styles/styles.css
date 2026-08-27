@@ -6,6 +6,9 @@
   --bg-blue: #969df1;
   --accent-turquoise: #96f2ef;
   --star-default-color: #96f2ef;
+  --hamburger-size: clamp(16px, 10vmin, 32px);
+  --hamburger-size: 200px;
+
   /* Other */
   --rounded: 12px;
 }
@@ -30,16 +33,46 @@ body {
   display: flex;
   flex-direction: column;
   font-family: var(--font-pixelify-sans);
+
+  cursor:
+    url("/cursors/Classic_cursor_Brushbuddy.png") 7 3,
+    default;
+}
+
+a,
+button,
+label,
+summary {
+  cursor:
+    url("/cursors/Link_pointer_Brushbuddy.png") 10 3,
+    pointer;
+}
+
+input[type="text"],
+textarea,
+[contenteditable] {
+  cursor:
+    url("/cursors/Text_hover_Brushbuddy.png") 5 10,
+    text;
+}
+
+[aria-busy="true"] {
+  cursor:
+    url("/cursors/Loading_Brushbuddy.png") 24 24,
+    wait;
 }
 
 header {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 0;
+  width: 100vw;
   background: var(--bg-purple);
   h1 {
+    justify-content: center;
+    text-align: center;
     a {
-      text-align: center;
       font-family: var(--font-super-pixel);
       font-size: 2.5rem;
       color: white;
@@ -94,7 +127,9 @@ h1 {
   color: white;
 }
 
-.sidebar {
+.navigation {
+  /* visibility: hidden; */
+  /* grid-column: 1 / span 16; */
   grid-column: 2 / span 3;
   background: var(--bg-blue);
   display: flex;
@@ -103,6 +138,20 @@ h1 {
   position: sticky;
   gap: 0.5rem;
   padding: 0.5rem;
+  min-width: min-content;
+
+  /* #hamburger-toggle { */
+  /*   opacity: 0; */
+  /*   cursor: pointer; */
+  /*   position: absolute; */
+  /* } */
+  /**/
+  /* #hamburger { */
+  /*   display: block; */
+  /*   padding: 0.5rem; */
+  /*   cursor: pointer; */
+  /*   width: clamp(16px, 10vmin, 32px); */
+  /* } */
 
   > * {
     width: 100%;
@@ -275,6 +324,23 @@ h1 {
       }
     }
   }
+
+  .anime-post {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem;
+
+    .anime-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px white dotted;
+    }
+  }
+
   .other-stuff {
     display: flex;
     flex-direction: row;

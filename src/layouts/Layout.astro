@@ -27,11 +27,23 @@ import reigenmoe from "../assets/images/reigenmoe-badge.gif";
       <h1 class="sparkles-wrapper"><a href="/">Potat's Place</a></h1>
     </header>
     <div class="wrapper">
-      <aside class="sidebar rainbow-border">
-        <h1 class="card">NAVIGATE YOURSELF</h1>
+      <nav class="navigation rainbow-border">
+        <input
+          type="checkbox"
+          id="hamburger-toggle"
+          aria-label="hamburger"
+          aria-controls="menu"
+          aria-expanded="false"
+        />
+        <label for="hamburger-toggle" id="hamburger" aria-hidden="true">
+          <span class="slice"></span>
+          <span class="slice"></span>
+          <span class="slice"></span>
+        </label>
+        <h1 class="card">~ NAVIGATE ~</h1>
         <ul class="nav-items-container card">
           <li class="nav-item"><a href="/TheTrio">The Trio</a></li>
-          <li class="nav-item"><a href="/DevLogs">Dev Logs</a></li>
+          <!-- <li class="nav-item"><a href="/DevLogs">Dev Logs</a></li> -->
           <li class="nav-item"><a href="/Ballroom">Ballroom Dance</a></li>
           <li class="nav-item"><a href="/Anime">Anime</a></li>
         </ul>
@@ -49,7 +61,7 @@ import reigenmoe from "../assets/images/reigenmoe-badge.gif";
             </a>
           </div>
         </div>
-      </aside>
+      </nav>
       <slot />
     </div>
   </body>
