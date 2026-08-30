@@ -127,8 +127,7 @@ h1 {
 }
 
 .navigation {
-  grid-column: 1 / span 16;
-  /* grid-column: 2 / span 3; */
+  grid-column: 2 / span 14;
   background: var(--bg-dark);
   display: flex;
   flex-direction: column;
@@ -146,7 +145,7 @@ h1 {
   #nav-header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -157,56 +156,6 @@ h1 {
     margin: 0.25rem 0 0;
     font-weight: 300;
     padding-left: 1rem;
-  }
-
-  #menu {
-    visibility: hidden;
-    position: relative;
-  }
-  #hamburger-toggle {
-    opacity: 0;
-    cursor:
-      url("/cursors/Link_pointer_Brushbuddy.png") 10 3,
-      pointer;
-    position: absolute;
-  }
-  #hamburger {
-    display: block;
-    padding: 0.5rem;
-    cursor:
-      url("/cursors/Link_pointer_Brushbuddy.png") 10 3,
-      pointer;
-    width: var(--hamburger-size);
-    height: var(--hamburger-size);
-    box-sizing: content-box;
-    transition: transform 0.2s ease;
-  }
-  #hamburger .slice {
-    --slice-height: 2px;
-    display: block;
-    position: relative;
-    width: 100%;
-    height: var(--slice-height, 2px);
-    border-radius: var(--slice-height);
-    transition: all 0.2s ease;
-    background-color: var(--accent-turquoise);
-    opacity: 90%;
-  }
-  #hamburger .slice {
-    margin-top: 22%; /* Fallback to produce something hamburger-ish if calc is not available */
-    margin-top: calc(33% - var(--slice-height));
-    top: calc((33% - var(--slice-height)) / -2);
-  }
-  #hamburger-toggle:checked ~ #hamburger .slice:nth-child(1) {
-    top: calc(50% - 33% + var(--slice-height) / 2);
-    transform: rotate(45deg);
-  }
-  #hamburger-toggle:checked ~ #hamburger .slice:nth-child(2) {
-    opacity: 0;
-  }
-  #hamburger-toggle:checked ~ #hamburger .slice:nth-child(3) {
-    top: calc(-50% + var(--slice-height) / 2);
-    transform: rotate(-45deg);
   }
 
   .nav-items-container {
@@ -308,7 +257,7 @@ h1 {
 }
 
 .content {
-  grid-column: 5 / span 11;
+  grid-column: 2 / span 14;
   background: var(--bg-blue);
   display: flex;
   flex-direction: column;
@@ -428,6 +377,16 @@ h1 {
   }
   100% {
     transform: scale(0);
+  }
+}
+
+/* Media Queries */
+@media (width >= 48rem) {
+  .navigation {
+    grid-column: 2 / span 3;
+  }
+  .content {
+    grid-column: 5 / span 11;
   }
 }
 
